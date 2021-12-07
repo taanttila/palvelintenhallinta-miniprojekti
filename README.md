@@ -1,7 +1,7 @@
 # palvelintenhallinta-miniprojekti
 
-The purpose of this miniproject is to create ready to go developing environment which includes LAMP-programs and other useful programs like Sublime Text.
+Tämän miniprojektin tarkoitus on luoda käyttövalmis kehitysympäristö jossa on LAMP-ohjelmistot, sekä muita hyödyllisiä ohjelmia kuten Sublime Text.
 
-Licence used : GPL 3
+Lisenssi : GPL 3
 
-This miniproject was created for Palvelinten Hallinta course by Tero Karvinen.
+Tämä miniprojekti tehtiin osana Tero Karvisen pitämää Palvelinten Hallinta kurssia.
