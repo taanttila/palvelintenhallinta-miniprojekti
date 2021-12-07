@@ -4,11 +4,11 @@ Aloitin miniprojektin luomalla kaksi virtuaalikonetta vagrantilla, joista toinen
 
 Loin master-koneella ensimmäisen tilatiedoston, johon asetin vaadittavia, sekä muita hyödyllisiä ohjelmia minionille asennettavaksi.
 
-![Image](https://github.com/taanttila/palvelintenhallinta-miniprojekti/blob/main/screenshots/programs.png)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/programs.png)
 
 Ajoin tilan minionille komennolla `sudo salt 'orja' state.apply programs`
 
 Ohjelmat asentuivat odotetusti.
 
-![Image](https://github.com/taanttila/palvelintenhallinta-miniprojekti/blob/main/screenshots/asennusprograms.png)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/asennusprograms.png)
 
