@@ -10,5 +10,5 @@ Ajoin tilan minionille komennolla `sudo salt 'orja' state.apply programs`
 
 Ohjelmat asentuivat odotetusti.
 
-[IMG](https://github.com/taanttila/palvelintenhallinta-miniprojekti/blob/main/screenshots/asennusprograms.PNG)
+[IMG](https://github.com/taanttila/palvelintenhallinta-miniprojekti/blob/main/screenshots/asennusprograms.png)
 
