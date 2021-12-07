@@ -4,3 +4,4 @@ The purpose of this miniproject is to create ready to go developing environment 
 
 Licence used : GPL 3
 
+This miniproject was created for Palvelinten Hallinta course by Tero Karvinen.
