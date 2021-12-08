@@ -1,4 +1,4 @@
-#LAMP & Muita ohjelmia
+# LAMP & Muita ohjelmia
 
 Aloitin miniprojektin luomalla kaksi virtuaalikonetta vagrantilla, joista toinen tulee master-koneeksi, ja toinen slave-koneeksi.
 
