@@ -45,11 +45,23 @@ Asetin tilan, joka luo tiedoston käyttäen masteri-koneella olevaa valmista tie
 Sitten loin symboliset linkit userdir.conf ja userdir.load tiedostojen välille. 
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/symlinkit.PNG)
-
+ 
 Asetin myös apache2:n käynnistymään uudelleen, jos tiedostoihin jotka asetin `watch` komennon alapuolelle tulee muutoksia.
 
 Viimeiseksi lisäsin myös rivit, jotka kopioi luomani testi.php tiedoston orjakoneelle, sekä `/etc/skel` alapuolelle, jotta uudet käyttäjät saavat sen käyttöönsä, sekä myös `var/www/html` alapuolelle, jotta se löytyy myös koneen omasta hakemistosta, ja on myös root käyttäjän käytettävissä.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/testiphp1.PNG)
+
+Ajoin tilat orjalle komennolla `sudo salt 'orja' state.apply programs`, ja sain vastaukseksi kaikkien tilojen onnistuneen.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjaonnistui.PNG)
+
+Varmuuden vuoksi siirryin vielä orja-koneelle johon loin uuden käyttäjän `tatutesti1`, jotta näen myös käsin muutosten tulleen voimaan. 
+
+Siirryin luodun käyttäjän kotihakemistoon josta edelleen `public_html` hakemistoon, jossa sijaitsi aiemmin luomani testi.php.
+
+Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomasin tilan toimineen.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjauusikayttis.PNG)
 
 
