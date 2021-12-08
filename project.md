@@ -1,6 +1,8 @@
 # LAMP & Muita ohjelmia
 
-Aloitin miniprojektin luomalla kaksi virtuaalikonetta vagrantilla, joista toinen tulee master-koneeksi, ja toinen slave-koneeksi.
+Miniprojekti luotu osana Tero Karvisen pitämää Palvelinten Hallinta kurssia.
+
+Aloitin miniprojektin luomalla kaksi virtuaalikonetta vagrantilla, joista toinen tulee master-koneeksi, ja toinen slave-koneeksi. Molemmat koneet käyttivät Debian 11 Bullseye käyttöjärjestelmää.
 
 Loin master-koneella ensimmäisen tilatiedoston, johon asetin vaadittavia, sekä muita hyödyllisiä ohjelmia minionille asennettavaksi.
 
@@ -63,5 +65,21 @@ Siirryin luodun käyttäjän kotihakemistoon josta edelleen `public_html` hakemi
 Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomasin tilan toimineen.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjauusikayttis.PNG)
+
+## Lopputulos
+
+Sain tavoitteeni onnistumaan, vaikka ne eivät suuria olleetkaan. Käynnissä oli samanaikaisesti useamman eri kurssin projekteja, joten minun piti kaventaa projektieni sisältöjä.
+
+Luotu ympäristö ei ole kovin tietoturvallinen, mutta ne asetukset on helppo lisätä jälkeenpäinkin. 
+
+
+
+## Lähteet
+
+https://terokarvinen.com
+
+https://digitalocean.com/community/tutorials/how-to-install-linux-apache-mariadb-php-lamp-stack-debian9
+
+https://upcloud.com/community/tutorials/installing-lamp-stack-ubuntu/
 
 
