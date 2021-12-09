@@ -100,7 +100,13 @@ Siirryin takaisin vagrant master koneelleni. Menin `/srv/salt/apache` hakemistoo
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheconfphp.PNG)
 
+Tämän jälkeen siirryin muokkaamaan testi.php tiedostoani samanlaiseksi kuin yllä käsin kokeilemani tiedosto. Salasana kannattaa olla vahva, jos aikoo tuotantoon laittaa kyseisen projektin.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/koiraphp.PNG)
+
 Seuraavana oli vuorossa käyttäjän, sekä databasen luominen saltilla. 
+
+
 
 
 
