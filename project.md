@@ -168,3 +168,5 @@ https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-o
 https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files
 
 https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
+
+https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/
