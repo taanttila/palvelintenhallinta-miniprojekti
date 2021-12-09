@@ -98,6 +98,9 @@ Nyt kun kaikki toimi host koneella oikein käsin tehtynä, oli aika automatisoid
 
 Siirryin takaisin vagrant master koneelleni. Menin `/srv/salt/apache` hakemistooni, jonne kopioin `php7.4.conf` tiedoston, joka sijaitsi `/etc/apache2/mods-available` hakemistossa. Kommentoin ylempänä olevat kohdat taas pois. 
 
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheconfphp.PNG)
+
+Seuraavana oli vuorossa käyttäjän, sekä databasen luominen saltilla. 
 
 
 
