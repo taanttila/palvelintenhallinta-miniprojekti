@@ -14,7 +14,7 @@ Ohjelmat asentuivat odotetusti.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/asennusprograms.PNG)
 
-Tämän jälkeen kokeilin aluksi masterilla käsin tehtynä, että asettamani tilat tulevat toimimaan.Siirryin muokkaamaan dir.conf tiedostoa apache2 hakemistossa, joka asettaa .php muotoiset tiedostot prioriteetiksi .html muodon sijaan.
+Tämän jälkeen kokeilin aluksi masterilla käsin tehtynä, että asettamani tilat tulevat toimimaan.Siirryin muokkaamaan dir.conf tiedostoa apache2 hakemistossa `/etc/apache2/mods-enabled`, joka asettaa .php muotoiset tiedostot prioriteetiksi .html muodon sijaan.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apachepref.PNG)
 
