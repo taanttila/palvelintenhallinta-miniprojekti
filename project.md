@@ -130,7 +130,19 @@ Kokeilin samaa. Loin `createcommands.sql` tiedoston, johon syötin seuraavat tie
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/createcommands.PNG)
 
-Peitin taas salasanan, mutta se tulisi `IDENTIFIED BY 'TÄHÄN'`.
+Peitin taas salasanan, mutta se tulisi `IDENTIFIED BY 'TÄHÄN'`. Hän oli myös laittanut tiedoston eri paikkaan orja-koneelle, joten muutin senkin rivin.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/uusmariadbinit.PNG)
+
+Nämäkään tilat eivät toimineet minulla, vaan sain virheilmoituksen.
+
+![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe1.PNG)
+
+Tutkin asiaa, ja löysin [Stackoverflowsta](https://stackoverflow.com/questions/49373422/error-1007-hy000-at-line-1-cant-create-database-mgsv-database-exists/49373900) jälleen apua. Muutin `createcommands.sql` tiedostoon `CREATE DATABASE IF NOT EXISTS`, ja ajoin uudelleen. Tällä kertaa tuli eri virheilmoitus.
+
+![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe2.PNG)
+
+
 
 
 
@@ -170,3 +182,5 @@ https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-f
 https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
 
 https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/
+
+https://stackoverflow.com/questions/49373422/error-1007-hy000-at-line-1-cant-create-database-mgsv-database-exists/49373900
