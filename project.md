@@ -122,6 +122,8 @@ Loin seuraavanlaisen init.sls tiedoston.
 
 Kokeilin ajaa tiloja orjalle, mutta yksi niistä ei onnistunut, eli viimeisin rivi, jossa yritin importata tietokannan mariadbhen.
 
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbinitajo.PNG)
+
 Löysin apua [Otso Raudan](https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/) harjoituksesta samasta aiheesta. Hän loi harjoituksessaan kokonaan alusta .sql tiedoston, johon asetti tietokannan luomiskomennot.
 
 Kokeilin samaa. Loin `createcommands.sql` tiedoston, johon syötin seuraavat tiedot.
