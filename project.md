@@ -116,6 +116,22 @@ Löysin apua [Linuxhotsupportin](https://linuxhostsupport.com/blog/how-to-import
 
 Kopioin BackupDatebase.sql:n `/srv/salt/mariadb` hakemistoon. Sitten piti vielä luoda salt-tilat.
 
+Loin seuraavanlaisen init.sls tiedoston.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbinit.PNG)
+
+Kokeilin ajaa tiloja orjalle, mutta yksi niistä ei onnistunut, eli viimeisin rivi, jossa yritin importata tietokannan mariadbhen.
+
+Löysin apua [Otso Raudan](https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/) harjoituksesta samasta aiheesta. Hän loi harjoituksessaan kokonaan alusta .sql tiedoston, johon asetti tietokannan luomiskomennot.
+
+Kokeilin samaa. Loin `createcommands.sql` tiedoston, johon syötin seuraavat tiedot.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/createcommands.PNG)
+
+Peitin taas salasanan, mutta se tulisi `IDENTIFIED BY 'TÄHÄN'`.
+
+
+
 
 
 
