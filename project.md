@@ -138,11 +138,17 @@ Nämäkään tilat eivät toimineet minulla, vaan sain virheilmoituksen.
 
 ![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe1.PNG)
 
-Tutkin asiaa, ja löysin [Stackoverflowsta](https://stackoverflow.com/questions/49373422/error-1007-hy000-at-line-1-cant-create-database-mgsv-database-exists/49373900) jälleen apua. Muutin `createcommands.sql` tiedostoon `CREATE DATABASE IF NOT EXISTS`, ja ajoin uudelleen. Tällä kertaa tuli eri virheilmoitus.
+Virheilmoitus sanoo, että tietokanta olisi jo olemassa. Kokeilin muuttaa kaikki `koira` kohdat sekä `.my.cnf`:stä sekä `createcommands.sql`:stä `koirat`:ksi.
 
-![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe2.PNG)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/onnistuijes.PNG)
 
-Tästä
+Tietokannan luonti onnistui. Tarkistin vielä orja-koneella mariadb:stä, toimiko tämä.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbonnistui.PNG)
+
+Kyllä toimi.
+
+
 
 
 
