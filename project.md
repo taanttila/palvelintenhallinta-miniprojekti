@@ -142,7 +142,7 @@ Virheilmoitus sanoo, että tietokanta olisi jo olemassa. Kokeilin muuttaa kaikki
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/onnistuijes.PNG)
 
-Tietokannan luonti onnistui. Tarkistin vielä orja-koneella mariadb:stä, toimiko tämä.
+Tietokannan luonti onnistui. Muutokset kissa -> koirat johtuu siitä, että kokeilin ensin muuttaa koira:t kissa:ksi, jolloin huomasin muutoksen toimivan. Tarkistin vielä orja-koneella mariadb:stä, toimiko tämä.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbonnistui.PNG)
 
