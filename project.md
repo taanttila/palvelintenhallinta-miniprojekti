@@ -80,7 +80,25 @@ Sivut eivät selaimen kautta toimineet, vieläkään joten ongelmanratkaisu jatk
 
 Löysin lisää apua, taas [Stackoverflowsta](https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files), jossa kerrottiin että ottamalla mpm_eventin pois käytöstä, ja laittamaan mpm_preforkin päälle, tämä toimisi. Kokeilin tätä komennoilla `sudo a2dismod mpm_event`, `sudo a2enmod mpm_prefork` ja nyt uudelleen `sudo a2enmod php7.4`, jonka jälkeen käynnistin uudelleen apache2:n `sudo systemctl restart apache2.service`. 
 
-Nyt sain toimimaan host koneella selaimen kautta php sivun. Seuraavana vuorossa oli siis tietokannan luonti. Käytin kurssin opettajan Tero Karvisen luomaa [ohjetta mariadb:n](https://terokarvinen.com/2018/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/) käytöstä.
+Nyt sain toimimaan host koneella selaimen kautta php sivun. Seuraavana vuorossa oli siis tietokannan luonti. Käytin kurssin opettajan Tero Karvisen luomaa [ohjetta mariadb:n](https://terokarvinen.com/2018/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/) käytöstä. 
+
+Loin ensimmäiseksi uuden tietokannan nimellä ukko, komennolla `create database ukko;`, jonka jälkeen annoin sille kaikki oikeudet komennolla `GRANT ALL ON ukko.* TO ukko@localhost IDENTIFIED BY '234234eioleoikeasalasana324';`. Kirjoitin `use ukko`, joka käyttää luomaani tietokantaa. Lisäsin yhden taulun komennolla `create table ukko(nimi CHAR(25))`. Tauluun lisäsin yhden rivin, Keijo. `insert into ukko(nimi) values ("Keijo");`.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbukko.PNG)
+
+Kokeilin vielä lisätä sen sivulleni, jotta se toimisi myös selaimessa. [Tero Karvisen](https://terokarvinen.com/2016/read-mysql-database-with-php-php-pdo/) sivuilla on tähänkin hyvä ohje. Kokeilin omaa versiotani siihen. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpdbtesti.PNG)
+
+Tämän jälkeen kokeilin selaimella avata, ja kyllä siellä näkyi lisäämäni tietokannan rivi.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/localhostdbtesti.PNG)
+
+Nyt kun kaikki toimi host koneella oikein käsin tehtynä, oli aika automatisoida tätä orjalle. 
+
+
+
+
 
 
 
@@ -95,6 +113,8 @@ Nyt sain toimimaan host koneella selaimen kautta php sivun. Seuraavana vuorossa 
 ## Lähteet
 
 https://terokarvinen.com/2018/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/
+
+https://terokarvinen.com/2016/read-mysql-database-with-php-php-pdo/
 
 https://digitalocean.com/community/tutorials/how-to-install-linux-apache-mariadb-php-lamp-stack-debian9
 
