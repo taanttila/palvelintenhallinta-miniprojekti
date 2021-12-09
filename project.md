@@ -104,7 +104,21 @@ Tämän jälkeen siirryin muokkaamaan testi.php tiedostoani samanlaiseksi kuin y
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/koiraphp.PNG)
 
-Seuraavana oli vuorossa käyttäjän, sekä databasen luominen saltilla. 
+Seuraavana oli vuorossa käyttäjän, sekä databasen luominen saltilla. Löysin [mariadb:n](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/) kotisivuilta paljon hyviä ohjeita tähän. Ensiksi pitää konfiguroida mariadb:n config tiedostoa, eli `my.cnf` tiedostoa. Tämä tiedosto sijaitsee `/etc/mysql` hakemistossa. Avasin tiedoston, ja huomasin kommenttirivin `"~/.my.cnf" to set user-specific options.`. 
+
+Loin siis uuden .my.cnf tiedoston `/srv/salt/mariadb` hakemistoon. Ylläolevasta ohjeesta loin seuraavanlaisen tiedoston.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mycnf.PNG)
+
+Väritin pois salasanan, mutta se tulisi myös `" "` merkkien väliin. Nyt kun käyttäjätiedot oli luotu, piti vielä luoda itse tietokanta. 
+
+Löysin apua [Linuxhotsupportin](https://linuxhostsupport.com/blog/how-to-import-an-sql-file-into-mysql-database/) artikkelista. Päätin kokeilla tätä, ja loin backupdatabasen masterilla luomani databasen pohjalta komennolla `mysqldump -u koira -p salasana(tämäeioleoikeasalasana) > BackupDatabase.sql`. 
+
+Kopioin BackupDatebase.sql:n `/srv/salt/mariadb` hakemistoon. Sitten piti vielä luoda salt-tilat.
+
+
+
+
 
 
 
@@ -134,3 +148,5 @@ https://upcloud.com/community/tutorials/installing-lamp-stack-ubuntu/
 https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-on-debian-stretch
 
 https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files
+
+https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
