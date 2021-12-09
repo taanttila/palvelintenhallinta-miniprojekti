@@ -66,7 +66,23 @@ Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomas
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjauusikayttis.PNG)
 
-Nyt kun olin saanut kaikki muut toiminnallisuudet luotua, piti vielä luoda tietokanta, joka yhdistyisi myös apacheen.
+Nyt kun olin saanut kaikki muut toiminnallisuudet luotua, piti vielä luoda tietokanta, joka yhdistyisi myös apacheen. Tässä kohtaa tuli kuitenkin ongelmia.
+
+Yritin tehdä käsin ensiksi host-koneella, mutta en saanut php sivuja toimimaan. Löysin [Stackoverflowsta](https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-on-debian-stretch) apua, että piti editoida `/etc/apache2/mods-available/php7.4.conf` tiedostoa seuraavanlaisesti.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/editoituphpconf.PNG)
+
+Kommentoitiin siis ympyröidyt asetukset pois päältä. Tämän jälkeen piti käynnistää apache uudelleen, `sudo systemctl restart apache2.service`.
+
+Sivut eivät selaimen kautta toimineet, vieläkään joten ongelmanratkaisu jatkui. Tällä kertaa kun kokeilin laittaa php7.4 moduulia päälle komennolla `sudo a2enmod php7.4`, sain virheilmoituksen. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpherja.PNG)
+
+Löysin lisää apua, taas [Stackoverflowsta](https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files), jossa kerrottiin että ottamalla mpm_eventin pois käytöstä, ja laittamaan mpm_preforkin päälle, tämä toimisi. Kokeilin tätä komennoilla `sudo a2dismod mpm_event`, `sudo a2enmod mpm_prefork` ja nyt uudelleen `sudo a2enmod php7.4`, jonka jälkeen käynnistin uudelleen apache2:n `sudo systemctl restart apache2.service`. 
+
+Nyt sain toimimaan host koneella selaimen kautta php sivun.
+
+
 
 ## Lopputulos
 
