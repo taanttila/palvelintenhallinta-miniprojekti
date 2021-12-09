@@ -66,6 +66,8 @@ Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomas
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjauusikayttis.PNG)
 
+Nyt kun olin saanut kaikki muut toiminnallisuudet luotua, piti vielä luoda tietokanta, joka yhdistyisi myös apacheen.
+
 ## Lopputulos
 
 <!---Sain tavoitteeni onnistumaan, vaikka ne eivät suuria olleetkaan. Käynnissä oli samanaikaisesti useamman eri kurssin projekteja, joten minun piti kaventaa projektieni sisältöjä.--->
