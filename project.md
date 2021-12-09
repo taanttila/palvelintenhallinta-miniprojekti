@@ -100,4 +100,6 @@ https://digitalocean.com/community/tutorials/how-to-install-linux-apache-mariadb
 
 https://upcloud.com/community/tutorials/installing-lamp-stack-ubuntu/
 
+https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-on-debian-stretch
 
+https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files
