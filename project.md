@@ -142,7 +142,7 @@ Tutkin asiaa, ja löysin [Stackoverflowsta](https://stackoverflow.com/questions/
 
 ![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe2.PNG)
 
-
+Tästä
 
 
 
