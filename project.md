@@ -96,6 +96,8 @@ Tämän jälkeen kokeilin selaimella avata, ja kyllä siellä näkyi lisäämän
 
 Nyt kun kaikki toimi host koneella oikein käsin tehtynä, oli aika automatisoida tätä orjalle. 
 
+Siirryin takaisin vagrant master koneelleni. Menin `/srv/salt/apache` hakemistooni, jonne kopioin `php7.4.conf` tiedoston, joka sijaitsi `/etc/apache2/mods-available` hakemistossa. Kommentoin ylempänä olevat kohdat taas pois. 
+
 
 
 
