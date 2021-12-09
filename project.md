@@ -136,7 +136,7 @@ Peitin taas salasanan, mutta se tulisi `IDENTIFIED BY 'TÄHÄN'`. Hän oli myös
 
 Nämäkään tilat eivät toimineet minulla, vaan sain virheilmoituksen.
 
-![Image](https://raw.gituhubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe1.PNG)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe1.PNG)
 
 Virheilmoitus sanoo, että tietokanta olisi jo olemassa. Kokeilin muuttaa kaikki `koira` kohdat sekä `.my.cnf`:stä sekä `createcommands.sql`:stä `koirat`:ksi.
 
