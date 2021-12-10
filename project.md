@@ -66,6 +66,120 @@ Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomas
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/orjauusikayttis.PNG)
 
+Nyt kun olin saanut kaikki muut toiminnallisuudet luotua, piti vielä luoda tietokanta, joka yhdistyisi myös apacheen. Tässä kohtaa tuli kuitenkin ongelmia.
+
+Yritin tehdä käsin ensiksi host-koneella, mutta en saanut php sivuja toimimaan. Löysin [Stackoverflowsta](https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-on-debian-stretch) apua, että piti editoida `/etc/apache2/mods-available/php7.4.conf` tiedostoa seuraavanlaisesti.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/editoituphpconf.PNG)
+
+Kommentoitiin siis ympyröidyt asetukset pois päältä. Tämän jälkeen piti käynnistää apache uudelleen, `sudo systemctl restart apache2.service`.
+
+Sivut eivät selaimen kautta toimineet, vieläkään joten ongelmanratkaisu jatkui. Tällä kertaa kun kokeilin laittaa php7.4 moduulia päälle komennolla `sudo a2enmod php7.4`, sain virheilmoituksen. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpherja.PNG)
+
+Löysin lisää apua, taas [Stackoverflowsta](https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files), jossa kerrottiin että ottamalla mpm_eventin pois käytöstä, ja laittamaan mpm_preforkin päälle, tämä toimisi. Kokeilin tätä komennoilla `sudo a2dismod mpm_event`, `sudo a2enmod mpm_prefork` ja nyt uudelleen `sudo a2enmod php7.4`, jonka jälkeen käynnistin uudelleen apache2:n `sudo systemctl restart apache2.service`. 
+
+Nyt sain toimimaan host koneella selaimen kautta php sivun. Seuraavana vuorossa oli siis tietokannan luonti. Käytin kurssin opettajan Tero Karvisen luomaa [ohjetta mariadb:n](https://terokarvinen.com/2018/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/) käytöstä. 
+
+Loin ensimmäiseksi uuden tietokannan nimellä ukko, komennolla `create database ukko;`, jonka jälkeen annoin sille kaikki oikeudet komennolla `GRANT ALL ON ukko.* TO ukko@localhost IDENTIFIED BY '234234eioleoikeasalasana324';`. Kirjoitin `use ukko`, joka käyttää luomaani tietokantaa. Lisäsin yhden taulun komennolla `create table ukko(nimi CHAR(25))`. Tauluun lisäsin yhden rivin, Keijo. `insert into ukko(nimi) values ("Keijo");`.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbukko.PNG)
+
+Kokeilin vielä lisätä sen sivulleni, jotta se toimisi myös selaimessa. [Tero Karvisen](https://terokarvinen.com/2016/read-mysql-database-with-php-php-pdo/) sivuilla on tähänkin hyvä ohje. Kokeilin omaa versiotani siihen. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpdbtesti.PNG)
+
+Tämän jälkeen kokeilin selaimella avata, ja kyllä siellä näkyi lisäämäni tietokannan rivi.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/localhostdbtesti.PNG)
+
+Nyt kun kaikki toimi host koneella oikein käsin tehtynä, oli aika automatisoida tätä orjalle. 
+
+Siirryin takaisin vagrant master koneelleni. Menin `/srv/salt/apache` hakemistooni, jonne kopioin `php7.4.conf` tiedoston, joka sijaitsi `/etc/apache2/mods-available` hakemistossa. Kommentoin ylempänä olevat kohdat taas pois. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheconfphp.PNG)
+
+Tämän jälkeen siirryin muokkaamaan testi.php tiedostoani samanlaiseksi kuin yllä käsin kokeilemani tiedosto. Salasana kannattaa olla vahva, jos aikoo tuotantoon laittaa kyseisen projektin.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/koiraphp.PNG)
+
+Seuraavana oli vuorossa käyttäjän, sekä databasen luominen saltilla. Löysin [mariadb:n](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/) kotisivuilta paljon hyviä ohjeita tähän. Ensiksi pitää konfiguroida mariadb:n config tiedostoa, eli `my.cnf` tiedostoa. Tämä tiedosto sijaitsee `/etc/mysql` hakemistossa. Avasin tiedoston, ja huomasin kommenttirivin `"~/.my.cnf" to set user-specific options.`. 
+
+Loin siis uuden .my.cnf tiedoston `/srv/salt/mariadb` hakemistoon. Ylläolevasta ohjeesta loin seuraavanlaisen tiedoston.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mycnf.PNG)
+
+Väritin pois salasanan, mutta se tulisi myös `" "` merkkien väliin. Nyt kun käyttäjätiedot oli luotu, piti vielä luoda itse tietokanta. 
+
+Löysin apua [Linuxhotsupportin](https://linuxhostsupport.com/blog/how-to-import-an-sql-file-into-mysql-database/) artikkelista. Päätin kokeilla tätä, ja loin backupdatabasen masterilla luomani databasen pohjalta komennolla `mysqldump -u koira -p salasana(tämäeioleoikeasalasana) > BackupDatabase.sql`. 
+
+Kopioin BackupDatebase.sql:n `/srv/salt/mariadb` hakemistoon. Sitten piti vielä luoda salt-tilat.
+
+Loin seuraavanlaisen init.sls tiedoston.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbinit.PNG)
+
+Kokeilin ajaa tiloja orjalle, mutta yksi niistä ei onnistunut, eli viimeisin rivi, jossa yritin importata tietokannan mariadbhen.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbinitajo.PNG)
+
+Löysin apua [Otso Raudan](https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/) harjoituksesta samasta aiheesta. Hän loi harjoituksessaan kokonaan alusta .sql tiedoston, johon asetti tietokannan luomiskomennot.
+
+Kokeilin samaa. Loin `createcommands.sql` tiedoston, johon syötin seuraavat tiedot.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/createcommands.PNG)
+
+Peitin taas salasanan, mutta se tulisi `IDENTIFIED BY 'TÄHÄN'`. Hän oli myös laittanut tiedoston eri paikkaan orja-koneelle, joten muutin senkin rivin.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/uusmariadbinit.PNG)
+
+Nämäkään tilat eivät toimineet minulla, vaan sain virheilmoituksen.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/virhe1.PNG)
+
+Virheilmoitus sanoo, että tietokanta olisi jo olemassa. Kokeilin muuttaa kaikki `koira` kohdat sekä `.my.cnf`:stä sekä `createcommands.sql`:stä `koirat`:ksi.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/onnistuijes.PNG)
+
+Tietokannan luonti onnistui. Muutokset kissa -> koirat johtuu siitä, että kokeilin ensin muuttaa koira:t kissa:ksi, jolloin huomasin muutoksen toimivan. Tarkistin vielä orja-koneella mariadb:stä, toimiko tämä.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbonnistui.PNG)
+
+Kyllä toimi. Katsoin vielä curlia käyttäen orjalla testi.php sivun sisältöä. Näytti oikealta. Selainta en pystynyt käyttämään, sillä kyseessä on vagrantkone.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/curlorjajee.PNG)
+
+Mietin pitkään, miksi userdirit eivät menneet Saltin kautta päälle, ja huomasin virheen tilassani. Olin vahingossa kirjoittanut symlinkit samojen tiedostojen välille, joten korjasin tilan.
+
+Nyt apache-, phpfile- ja programs-tilat toimivat idempotentteina.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheidem.PNG)
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpidem.PNG)
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/programsidem.PNG)
+
+Viimeisin tila, eli mariadb, ei kuitenkaan idempotenttia saavuttanut. Tila joka tämän aiheuttaa, luo databasen, jos sitä ei ole. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/melkeinidem.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Lopputulos
 
 <!---Sain tavoitteeni onnistumaan, vaikka ne eivät suuria olleetkaan. Käynnissä oli samanaikaisesti useamman eri kurssin projekteja, joten minun piti kaventaa projektieni sisältöjä.--->
@@ -76,10 +190,20 @@ Kokeilin vielä curlin avulla komennolla `http://localhost/testi.php`, ja huomas
 
 ## Lähteet
 
-https://terokarvinen.com
+https://terokarvinen.com/2018/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/
+
+https://terokarvinen.com/2016/read-mysql-database-with-php-php-pdo/
 
 https://digitalocean.com/community/tutorials/how-to-install-linux-apache-mariadb-php-lamp-stack-debian9
 
 https://upcloud.com/community/tutorials/installing-lamp-stack-ubuntu/
 
+https://stackoverflow.com/questions/51420077/apache2-not-executing-php-scripts-on-debian-stretch
 
+https://stackoverflow.com/questions/47024111/apache-installing-and-running-php-files
+
+https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
+
+https://otsorauta.wordpress.com/2018/12/03/h6-lamp-asennus-saltilla/
+
+https://stackoverflow.com/questions/49373422/error-1007-hy000-at-line-1-cant-create-database-mgsv-database-exists/49373900
