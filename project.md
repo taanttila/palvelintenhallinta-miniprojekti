@@ -150,6 +150,19 @@ Kyllä toimi. Katsoin vielä curlia käyttäen orjalla testi.php sivun sisältö
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/curlorjajee.PNG)
 
+Mietin pitkään, miksi userdirit eivät menneet Saltin kautta päälle, ja huomasin virheen tilassani. Olin vahingossa kirjoittanut symlinkit samojen tiedostojen välille, joten korjasin tilan.
+
+Nyt apache-, phpfile- ja programs-tilat toimivat idempotentteina.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheidem.PNG)
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/phpidem.PNG)
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/programsidem.PNG)
+
+Viimeisin tila, eli mariadb, ei kuitenkaan idempotenttia saavuttanut. Tila joka tämän aiheuttaa, luo databasen, jos sitä ei ole. 
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/melkeinidem.PNG)
 
 
 
