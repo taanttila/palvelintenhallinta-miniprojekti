@@ -17,3 +17,6 @@ mariadb:
     - enable: True
 
 
+/etc/skel/.my.cnf:
+  file.managed:
+    - source: salt://programs/.my.cnf

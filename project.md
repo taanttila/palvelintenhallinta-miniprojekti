@@ -168,7 +168,7 @@ Viimeisin tila, eli mariadb, ei kuitenkaan idempotenttia saavuttanut. Tila joka 
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/melkeinidem.PNG)
 
-
+Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty githubiin.
 
 
 
