@@ -146,7 +146,11 @@ Tietokannan luonti onnistui. Muutokset kissa -> koirat johtuu siitä, että koke
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbonnistui.PNG)
 
-Kyllä toimi.
+Kyllä toimi. Katsoin vielä curlia käyttäen orjalla testi.php sivun sisältöä. Näytti oikealta. Selainta en pystynyt käyttämään, sillä kyseessä on vagrantkone.
+
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/curlorjajee.PNG)
+
+
 
 
 
