@@ -168,7 +168,9 @@ Viimeisin tila, eli mariadb, ei kuitenkaan idempotenttia saavuttanut. Tila joka 
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/melkeinidem.PNG)
 
-Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty githubiin.
+Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty githubiin. Tärkeimmät muutokset, poistin mariadb -> init.sls tiedostosta `.my.cnf` tiedoston luomisen käyttäjälle vagrant, ja siirsin sen programs -> init.sls tiedostoon, joka luo sen uudelle käyttäjälle aina, kun uusi käyttäjä luodaan.
+
+
 
 
 
