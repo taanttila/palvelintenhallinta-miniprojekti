@@ -2,9 +2,13 @@
 
 The purpose of this miniproject is installing LAMP-stack, and creating a ready to use database for the machines new users. Documentation is only in Finnish (project.md)
 
+Tested on Debian 11 Bullseye vagrant virtual computers.
+
 ## How to use
 
 You can clone the repository using git, or write them down on your own computer. Run `programs` first, then `apache`, then `phpfile` and then `mariadb` last. 
+
+You will need salt-minion to run these states. 
 
 ## Result
 
