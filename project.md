@@ -1,4 +1,4 @@
-# LAMP & Muita ohjelmia
+# LAMP 
 
 Miniprojekti luotu osana Tero Karvisen pitämää Palvelinten Hallinta kurssia.
 
@@ -188,9 +188,9 @@ Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty g
 
 ## Lopputulos
 
-<!---Sain tavoitteeni onnistumaan, vaikka ne eivät suuria olleetkaan. Käynnissä oli samanaikaisesti useamman eri kurssin projekteja, joten minun piti kaventaa projektieni sisältöjä.--->
+Sain tavoitteeni onnistumaan. LAMP-stack asentui, sekä sain uploadattua luomani tietokannan .PHP sivulle. Tulos ei ole tietoturvallinen, mutta se ei ollutkaan tämän projektin tarkoitus.
 
-<!---Luotu ympäristö ei ole kovin tietoturvallinen, mutta ne asetukset on helppo lisätä jälkeenpäinkin.---> 
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/lopputulos.PNG)
 
 
 
