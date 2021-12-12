@@ -1,7 +1,7 @@
 # palvelintenhallinta-miniprojekti
 
-Tämän miniprojektin tarkoitus on luoda käyttövalmis kehitysympäristö jossa on LAMP-ohjelmistot, sekä muita hyödyllisiä ohjelmia kuten Sublime Text.
+The purpose of this miniproject is installing LAMP-stack, and creating a ready to use database for the machines new users. Documentation is only in Finnish (project.md)
 
 Lisenssi : GPL 3
 
-Tämä miniprojekti tehtiin osana Tero Karvisen pitämää Palvelinten Hallinta kurssia.
+This miniproject was done as part of  [Tero Karvinen - Palvelinten Hallinta course](https://terokarvinen.com/2021/configuration-management-systems-palvelinten-hallinta-ict4tn022-2021-autumn/).
