@@ -12,7 +12,7 @@ mariadb:
 
 'cat /tmp/create_user.sql | sudo mariadb':
   cmd.run:
-    - unless: "echo 'show databases' | sudo mariadb | grep '^koira$'"
+    - unless: "echo 'show databases' | sudo mariadb | grep '^koirat$'"
 
 #/home/vagrant/.my.cnf:
 #  file.managed:
