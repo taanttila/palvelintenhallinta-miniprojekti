@@ -164,7 +164,7 @@ Nyt kaikki tilat toimivat idempotentteina.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/programsidem.PNG)
 
-![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbidem.PNG)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbidemp.PNG)
 
 Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty githubiin. Tärkeimmät muutokset, poistin mariadb -> init.sls tiedostosta `.my.cnf` tiedoston luomisen käyttäjälle vagrant, ja siirsin sen programs -> init.sls tiedostoon, joka luo sen uudelle käyttäjälle aina, kun uusi käyttäjä luodaan. Poistin myös phpfilen kokonaan, ja siirsin sen toiminnallisuudet programs-tilatiedostoon yksinkertaistaakseni toimintoja. 
 
