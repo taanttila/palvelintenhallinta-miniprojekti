@@ -156,7 +156,7 @@ Kyllä toimi. Katsoin vielä curlia käyttäen orjalla testi.php sivun sisältö
 
 Mietin pitkään, miksi userdirit eivät menneet Saltin kautta päälle, ja huomasin virheen tilassani. Olin vahingossa kirjoittanut symlinkit samojen tiedostojen välille, joten korjasin tilan.
 
-Nyt apache-, phpfile- ja programs-tilat toimivat idempotentteina.
+Nyt kaikki tilat toimivat idempotentteina.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/apacheidem.PNG)
 
@@ -164,9 +164,7 @@ Nyt apache-, phpfile- ja programs-tilat toimivat idempotentteina.
 
 ![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/programsidem.PNG)
 
-Viimeisin tila, eli mariadb, ei kuitenkaan idempotenttia saavuttanut. Tila joka tämän aiheuttaa, luo databasen, jos sitä ei ole. 
-
-![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/melkeinidem.PNG)
+![Image](https://raw.githubusercontent.com/taanttila/palvelintenhallinta-miniprojekti/main/screenshots/mariadbidem.PNG)
 
 Muokkasin init.sls tiedostoja hieman erilaiseksi, uudemmat versiot päivitetty githubiin. Tärkeimmät muutokset, poistin mariadb -> init.sls tiedostosta `.my.cnf` tiedoston luomisen käyttäjälle vagrant, ja siirsin sen programs -> init.sls tiedostoon, joka luo sen uudelle käyttäjälle aina, kun uusi käyttäjä luodaan. Poistin myös phpfilen kokonaan, ja siirsin sen toiminnallisuudet programs-tilatiedostoon yksinkertaistaakseni toimintoja. 
 
