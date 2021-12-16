@@ -2,7 +2,7 @@
 
 The purpose of this miniproject is installing LAMP-stack, and creating a ready to use database for the machines new users. Documentation is only in Finnish (project.md)
 
-Tested on Debian 11 Bullseye vagrant virtual computers.
+Tested on Debian 11 Bullseye virtual computers.
 
 ## How to use
 
